@@ -3,7 +3,8 @@
      ref="vueInlineEditor">
     <div class="vie-editor-content" 
          contenteditable="true"
-         @keyup="handleKeyup" 
+         @keyup="handleKeyup"
+         @paste.stop="handlePaste"
          @mouseup="handleMouseup"
          ref="editContent">
     </div>
@@ -12,7 +13,7 @@
 
 <script>
 import Vue from 'vue';
-import Toolbar from './toolbar/Index.vue';
+import Toolbar from './toolbar';
 import '../styles/normalize.css';
 import '../styles/icon-font/iconfont.css';
 
@@ -25,6 +26,10 @@ export default {
         },
         options: {
             type: Object
+        },
+        pastePlainTxt: {
+            type: Boolean,
+            default: false
         }
     },
     components: {
@@ -168,6 +173,17 @@ export default {
                     this.showToolbar();
                 }
             }, 1);
+        },
+        handlePaste (event) {
+            if (this.pastePlainTxt) {
+                event.preventDefault();
+                let text = (event.clipboardData || window.clipboardData).getData('text/plain');
+                if (document.queryCommandSupported('insertText')) {
+                    document.execCommand('insertText', false, text);
+                } else {
+                    document.execCommand('paste', false, text);
+                }
+            }
         },
         updateButtonState () {
             const buttons = this.toolbar.buttons;

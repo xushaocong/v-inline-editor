@@ -2,8 +2,9 @@
     <div id="app">
         <router-view/>
         <button @click="show = true">show</button><button @click="show = false">remove</button>
+        <button @click="pastePlainTxt = true">pastePlainTxt</button><button @click="pastePlainTxt = false">no pastePlainTxt</button>
         <div class="editor">
-            <vue-inline-editor v-model="content" v-if="show"></vue-inline-editor>
+            <vue-inline-editor v-model="content" v-if="show" :pastePlainTxt="pastePlainTxt"></vue-inline-editor>
         </div>
     </div>
 </template>
@@ -19,6 +20,7 @@ export default {
         return {
             content: '<p>sdsdd555</p>',
             show: true,
+            pastePlainTxt: false,
             options: {
                 toolbar: ['fontName', 'fontSize', 'foreColor', 'backColor'],
                 fontSize: [

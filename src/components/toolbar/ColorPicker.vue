@@ -29,7 +29,6 @@
                 </button>
                 <button
                     v-for="(color, index) of themeColor"
-                    v-if="color !== 'transparent'"
                     :key="index"
                     :style="{ backgroundColor: color }"
                     @mouseover="hoverColor = color"
@@ -79,7 +78,7 @@ export default {
         return {
             openStatus: false,
             hoverColor: null,
-            themeColor: ['transparent', '#000', '#fff', '#ffebcd', '#ff8000', '#ffc12a', '#448026', '#ffff00', '#ff0000', '#0000ff'],
+            themeColor: ['#000', '#fff', '#ffebcd', '#ff8000', '#ffc12a', '#448026', '#ffff00', '#ff0000', '#0000ff'],
             colorPanel: [
                 ['#400000', '#804000', '#004000', '#004040'],
                 ['#808000', '#808040', '#808080', '#408080'],
@@ -149,7 +148,7 @@ export default {
 
         /**
          * HEX 转 RGB 颜色
-        */
+         */
         hexToRgb (hex) {
             hex = this.parseColor(hex);
             let rgb = [];

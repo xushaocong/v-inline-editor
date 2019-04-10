@@ -185,9 +185,24 @@ export default {
                 }
             }
         },
+        rgbToHex (rgb) {
+            let regExp = /\((.+)\)/;
+            let result = rgb.match(regExp);
+            if (result) {
+                result = result[1].split(',');
+                let r = parseInt(result[0].trim());
+                let g = parseInt(result[1].trim());
+                let b = parseInt(result[2].trim());
+                console.log(r, g, b);
+                let hex = ((r << 16) | (g << 8) | b).toString(16);
+                return '#' + new Array(Math.abs(hex.length - 7)).join('0') + hex;
+            }
+            return '';
+        },
         updateButtonState () {
             const buttons = this.toolbar.buttons;
             const selects = this.toolbar.selects;
+            const colorPickers = this.toolbar.colorPickers;
             const d = document;
             const state = {
                 'is_bold': d.queryCommandValue('bold'),
@@ -209,8 +224,12 @@ export default {
 
             const fontName = d.queryCommandValue('fontName');
             selects.fontName.value = fontName.split(',')[0] || '';
-
             selects.fontSize.value = this.updateFontSize() || '';
+
+            const foreColor = d.queryCommandValue('foreColor');
+            const backColor = d.queryCommandValue('backColor');
+            colorPickers.foreColor.value = this.rgbToHex(foreColor) || '';
+            colorPickers.backColor.value = this.rgbToHex(backColor) || '';
         },
         getFontSize (element) {
             if (element.nodeType === 3) {

@@ -1,4 +1,4 @@
-# vue-inline-editor-simple
+# vue-inline-editor
 
 ## Project setup
 ```

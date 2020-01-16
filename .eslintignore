@@ -1,6 +1,2 @@
-/build/
-/config/
-/dist/
-/*.js
-/src/utils/
-/test/unit/coverage/
+/dist
+/src/assets

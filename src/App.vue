@@ -1,52 +1,27 @@
 <template>
-    <div id="app">
-        <router-view/>
-        <button @click="show = true">show</button><button @click="show = false">remove</button>
-        <button @click="pastePlainTxt = true">pastePlainTxt</button><button @click="pastePlainTxt = false">no pastePlainTxt</button>
-        <div class="editor">
-            <vue-inline-editor v-model="content" v-if="show" :pastePlainTxt="pastePlainTxt"></vue-inline-editor>
-        </div>
-    </div>
+  <div id="app">
+    <vue-inline-editor v-model="content" :pastePlain="pastePlainTxt"></vue-inline-editor>
+  </div>
 </template>
 
 <script>
-import VueInlineEditor from './components/VueInlineEditor';
+import VueInlineEditor from './components/vue-inline-editor';
 export default {
-    name: 'app',
-    components: {
-        VueInlineEditor
-    },
-    data () {
-        return {
-            content: '<p>sdsdd555</p>',
-            show: true,
-            pastePlainTxt: false,
-            options: {
-                toolbar: ['fontName', 'fontSize', 'foreColor', 'backColor'],
-                fontSize: [
-                    { label: '0.5rem', value: '0.5rem' }
-                ],
-                fontName: [
-                    { label: '黑体', value: '黑体' }
-                ]
-            }
-        };
+  name: 'App',
+  components: {
+    VueInlineEditor
+  },
+  data() {
+    return {
+      content: '请选择文本进行编辑',
+      pastePlainTxt: true
     }
-};
+  }
+}
 </script>
 
 <style>
 #app {
-    font-family: '微软雅黑', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-}
-.editor {
-    width: 200px;
-    height: 300px;
-    margin: 380px 600px;
+  margin: 80px;
 }
 </style>

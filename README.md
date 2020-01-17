@@ -57,15 +57,47 @@ export default {
 参数 | 说明 | 类型 | 可选值 | 默认值
 ---  | ---  |  --- |   ---  |  ---
 value/v-model | 绑定值 | string | - | -
-options | 组件参数配置（详见下表） | Object | - | -
+options | 组件参数配置（详见下文） | Object | - | -
 pastePlain | 复制纯文本 | Boolean | - | false
 
-#### Options Attribute
-属性 | 说明 | 类型 | 可选值 | 默认值
----  | ---  |  --- |   ---  |  ---
-toolbar | 控制工具条的功能 | Array | - | ['fontName', 'fontSize', 'foreColor', 'backColor', 'bold', 'italic', 'underline', 'strikeThrough', 'superscript', 'subscript', 'justifyLeft', 'justifyCenter', 'justifyRight', 'removeFormat']
-fontSize | 控制 fontSize 下拉选择框的 option | Array | - | -
-fontName | 控制 fontName 下拉选择框的 option | Array | - | -
+Options 参数是一个对象，对象里包含 3 个属性，分别是 `toolbar` `fontName` `fontSize`。
+
+```js
+// toolbar 类型为 Array[]，可选填部分功能按钮，默认值为：
+
+toolbar: [
+    'fontName', 'fontSize',
+    'foreColor', 'backColor',
+    'bold', 'italic', 'underline', 'strikeThrough',
+    'superscript', 'subscript',
+    'justifyLeft', 'justifyCenter', 'justifyRight',
+    'removeFormat'
+]
+
+// fontSize 类型为 Array[]，数组元素为对象，默认值为：
+
+fontSize: [
+    { value: '12px', label: '12px' },
+    { value: '14px', label: '14px' },
+    { value: '16px', label: '16px' },
+    { value: '18px', label: '18px' },
+    { value: '20px', label: '20px' },
+    { value: '24px', label: '24px' },
+    { value: '28px', label: '28px' },
+    { value: '32px', label: '32px' },
+    { value: '48px', label: '48px' }
+ ]
+
+// fontName 类型为 Array[]，数组元素为对象，默认值为：
+
+fontName: [
+    { value: '微软雅黑', label: '微软雅黑' },
+    { value: '宋体', label: '宋体' },
+    { value: '仿宋', label: '仿宋' },
+    { value: 'serif', label: 'Serif' },
+    { value: 'Helvetica', label: 'Helvetica' }
+ ]
+```
 
 
 

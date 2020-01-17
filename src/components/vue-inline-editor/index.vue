@@ -15,7 +15,7 @@
 <script>
 import Vue from 'vue';
 import Toolbar from '../toolbar';
-import '../../assets/css/index.scss';
+import '../../assets/css/index.css';
 import '../../assets/css/icon-font/iconfont.js';
 
 export default {
@@ -94,9 +94,8 @@ export default {
     fontSize(name, value) {
       let selection = this.getSelection();
       let range = this.getRange();
-      if (!selection || !range || range.collapsed) {
-        return;
-      }
+      if (!selection || !range || range.collapsed) return;
+
       let childNodes = range.cloneContents().childNodes;
       if (childNodes.length === 1 && childNodes[0].nodeType === 1 && childNodes[0].tagName.toLowerCase() === 'span') {
         let span = range.extractContents().childNodes[0];
@@ -115,7 +114,7 @@ export default {
           container.nodeType === 3 && (container = container.parentNode);
           container.tagName.toLowerCase() === 'span' && (container = container.parentNode);
           Array.prototype.forEach.call(container.getElementsByTagName('span'), function (span) {
-            if (span.style.fontSize.trim() === '-webkit-xxx-large' || span.style.fontSize.trim() === 'xx-large') {
+            if (span.style.fontSize.trim() === '-webkit-xxx-large' || span.style.fontSize.trim() === 'xxx-large') {
               span.style.fontSize = value;
             }
             span.normalize();

@@ -1,11 +1,25 @@
 {
-  "name": "vue-inline-editor",
-  "version": "0.1.0",
-  "private": true,
+  "name": "v-inline-editor",
+  "version": "1.0.0",
+  "description": "A WYSIWYG editor of inline mode.",
+  "author": "Xushaocong (373582774@qq.com)",
+  "main": "lib/vue-inline-editor.vue",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xushaocong/vue-inline-editor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xushaocong/vue-inline-editor/issues"
+  },
+  "files": [
+    "lib"
+  ],
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "demo": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build": "cross-env NODE_ENV=production rollup -c"
   },
   "dependencies": {
     "core-js": "^2.6.5",
@@ -16,12 +30,28 @@
     "@vue/cli-plugin-eslint": "^3.9.0",
     "@vue/cli-service": "^3.9.0",
     "babel-eslint": "^10.0.1",
+    "cross-env": "^6.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "node-sass": "^4.12.0",
+    "rollup": "^1.29.0",
+    "rollup-plugin-analyzer": "^3.2.2",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-scss": "^2.1.0",
+    "rollup-plugin-terser": "^5.2.0",
+    "rollup-plugin-vue": "^5.1.5",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.6.10"
   },
+  "keywords": [
+    "vue",
+    "editor",
+    "rich text editor",
+    "inline mode",
+    "WYSIWYG"
+  ],
   "peerDependencies": {
     "vue": "^2.6.10"
   },

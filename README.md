@@ -62,7 +62,7 @@ pastePlain | 复制纯文本 | Boolean | - | false
 
 #### Options Attribute
 属性 | 说明 | 类型 | 可选值 | 默认值
----  | ---  |  --- |   ---  |  -
+---  | ---  |  --- |   ---  |  ---
 toolbar | 控制工具条的功能 | Array | - | ['fontName', 'fontSize', 'foreColor', 'backColor', 'bold', 'italic', 'underline', 'strikeThrough', 'superscript', 'subscript', 'justifyLeft', 'justifyCenter', 'justifyRight', 'removeFormat']
 fontSize | 控制 fontSize 下拉选择框的 option | Array | - | -
 fontName | 控制 fontName 下拉选择框的 option | Array | - | -

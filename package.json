@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A WYSIWYG editor of inline mode.",
   "author": "Xushaocong (373582774@qq.com)",
-  "main": "lib/vue-inline-editor.vue",
+  "main": "lib/v-inline-editor.umd.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/xushaocong/vue-inline-editor.git"

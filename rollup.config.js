@@ -7,14 +7,32 @@ const { terser } = require('rollup-plugin-terser');
 
 export default {
   input: 'src/index.js',
-  output: {
-    file: 'lib/vue-inline-editor.js',
-    name: 'VueInlineEditor',
-    format: 'umd',
-    globals: {
-      vue: 'Vue'
+  output: [
+    {
+      file: 'lib/v-inline-editor.esm.js',
+      name: 'VueInlineEditor',
+      format: 'es',
+      globals: {
+        vue: 'Vue'
+      }
+    },
+    {
+      file: 'lib/v-inline-editor.cjs.js',
+      name: 'VueInlineEditor',
+      format: 'cjs',
+      globals: {
+        vue: 'Vue'
+      }
+    },
+    {
+      file: 'lib/v-inline-editor.umd.js',
+      name: 'VueInlineEditor',
+      format: 'umd',
+      globals: {
+        vue: 'Vue'
+      }
     }
-  },
+  ],
   external: [ 'vue' ],
   plugins: [
     resolve({
@@ -25,7 +43,9 @@ export default {
       compileTemplate: true,
       css: false
     }),
-    scss(),
+    scss({
+      output: 'lib/v-inline-editor.css'
+    }),
     buble(),
     terser()
   ]

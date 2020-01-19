@@ -1,6 +1,6 @@
 {
   "name": "v-inline-editor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A WYSIWYG editor of inline mode.",
   "author": "Xushaocong (373582774@qq.com)",
   "main": "lib/v-inline-editor.umd.js",
@@ -22,8 +22,7 @@
     "build": "cross-env NODE_ENV=production rollup -c"
   },
   "dependencies": {
-    "core-js": "^2.6.5",
-    "vue": "^2.6.10"
+    "core-js": "^2.6.5"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.9.0",
@@ -43,6 +42,7 @@
     "rollup-plugin-terser": "^5.2.0",
     "rollup-plugin-vue": "^5.1.5",
     "sass-loader": "^7.1.0",
+    "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
   },
   "keywords": [

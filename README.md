@@ -12,12 +12,14 @@ yarn add v-inline-editor
 ```js
 import Vue from 'vue';
 import VueInlineEditor from 'v-inline-editor';
+import 'v-inline-editor/lib/v-inline-editor.css';
 
 Vue.use(VueInlineEditor);
 
 // or
 
 import VueInlineEditor from 'v-inline-editor';
+import 'v-inline-editor/lib/v-inline-editor.css';
 Vue.component(VueInlineEditor.name, VueInlineEditor);
 ```
 ```vue
@@ -34,7 +36,7 @@ export default {
         return {
             text: '请输入文本信息',
             pastePlain: false,
-            options: {
+            customOptions: {
                 toolbar: ['fontSize', 'fontName', 'bold'],
                 fontSize: [
                     { value: '16px', label: '16px' },
@@ -60,7 +62,7 @@ value/v-model | 绑定值 | string | - | -
 options | 组件参数配置（详见下文） | Object | - | -
 pastePlain | 复制纯文本 | Boolean | - | false
 
-Options 参数是一个对象，对象里包含 3 个属性，分别是 `toolbar` `fontName` `fontSize`。
+options 参数是一个对象，对象里包含 3 个属性，分别是 `toolbar` `fontName` `fontSize`。
 
 ```js
 // toolbar 类型为 Array[]，可选填部分功能按钮，默认值为：
@@ -99,7 +101,10 @@ fontName: [
  ]
 ```
 
-
+### Component Events
+事件名称 | 说明 | 回调参数 
+---  | ---  |  --- 
+input | 当输入框内容发生变化时触发 | 输入框内容
 
 ### Development
 ```js

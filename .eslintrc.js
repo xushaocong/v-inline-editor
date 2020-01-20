@@ -38,7 +38,7 @@ module.exports = {
     "indent": ["error", 2, {"SwitchCase": 1}],
     'no-alert': process.env.NODE_ENV === 'production' ? 2 : 0, // allow debugger during development
     'no-bitwise': 'off', // off to allow binary ops
-    'no-console': process.env.NODE_ENV === 'production' ? 2 : 0, // allow console during development
+    'no-console': 'error',
     'no-continue': 'off', // off to allow continue
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0, // allow debugger during development
     'no-else-return': 'off', // off to allow `else return;`

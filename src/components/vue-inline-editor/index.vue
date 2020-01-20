@@ -91,6 +91,7 @@ export default {
       }
       return range;
     },
+    // 参考 https://github.com/hifarer/vueditor/blob/master/src/components/design.vue
     fontSize(name, value) {
       let selection = this.getSelection();
       let range = this.getRange();
@@ -151,6 +152,35 @@ export default {
           selection.removeAllRanges();
           selection.addRange(range);
         }
+      }
+    },
+    formatContent (obj, tagName, cssName) {
+      let temp = [];
+      let pattern = {
+        fontSize: /font-size:\s?\d+px;/g,
+        verticalAlign: /vertical-align:\s?(sub|super);/g
+      };
+      let nodeList = obj.getElementsByTagName(tagName);
+      for (let i = 0; i < nodeList.length; i++) {
+        let node = nodeList[i];
+        if (node.attributes.length === 1 && node.style.length !== 0 && node.getAttribute('style').match(pattern[cssName]) != null) {
+          if (node.children.length === 0) {
+            if (node.style.length === 1) {
+              let parent = node.parentNode;
+              parent.replaceChild(document.createTextNode(node.innerHTML), node);
+              parent.normalize();
+              // eslint-disable-next-line no-plusplus
+              i--;
+            } else {
+              node.style[cssName] = '';
+            }
+          } else {
+            temp.push(node);
+          }
+        }
+      }
+      if (temp.length) {
+        this.formatContent(obj, tagName, cssName);
       }
     },
     showToolbar() {
@@ -270,10 +300,13 @@ export default {
       return styleVal;
     },
     bindClickEvent(event) {
-      var isClickToolbar = event.path.includes(this.toolbar.$el);
-      var isClickContent = event.path.includes(this.editContent);
-      if (!isClickToolbar && !isClickContent) {
-        this.hideToolbar();
+      const path = event.path || (event.composedPath && event.composedPath());
+      if (path) {
+        const isClickToolbar = path.includes(this.toolbar.$el);
+        const isClickContent = path.includes(this.editContent);
+        if (!isClickToolbar && !isClickContent) {
+          this.hideToolbar();
+        }
       }
     },
     initToolbar() {

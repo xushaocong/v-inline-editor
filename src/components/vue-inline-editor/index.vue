@@ -8,7 +8,8 @@
       contenteditable="true"
       @keyup="handleKeyup"
       @paste.stop="handlePaste"
-      @mouseup="handleMouseup"/>
+      @mouseup="handleMouseup"
+      @blur="handleBlur" />
   </div>
 </template>
 
@@ -228,6 +229,9 @@ export default {
           document.execCommand('paste', false, text);
         }
       }
+    },
+    handleBlur(event) {
+      this.$emit('blur', event);
     },
     rgbToHex(rgb) {
       let regExp = /\((.+)\)/;

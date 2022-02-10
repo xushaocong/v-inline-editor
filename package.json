@@ -32,7 +32,7 @@
     "cross-env": "^6.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "rollup": "^1.29.0",
     "rollup-plugin-analyzer": "^3.2.2",
     "rollup-plugin-buble": "^0.19.8",
